@@ -74,3 +74,5 @@
 // });
 
 // server.listen(5000);
+
+console.log("Using node and Nodemon -- Node Js learning and Express");
