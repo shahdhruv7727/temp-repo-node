@@ -61,7 +61,7 @@
 
 // HTTP Module 
 
-// const http = require('http');
+const http = require('http');
 
 // const server = http.createServer((req, res) => {
 //     if (req.url === '/') {
@@ -76,3 +76,25 @@
 // server.listen(5000);
 
 console.log("Using node and Nodemon -- Node Js learning and Express");
+
+const fs = require('fs');
+
+http.createServer((req, res) => {
+        // if (req.url === '/') {
+        //     res.end('Welcome to Main Page');
+        // } else if (req.url === '/about') {
+        //     res.end('The about page');
+        // } else {
+        //     res.end('The Website.................');
+        // }
+        const filestream = fs.createReadStream('./exampleDir/big.txt','utf-8')
+        filestream.on('open', () =>{
+            filestream.pipe(res);
+        })
+    }).listen(5000);
+    
+
+
+// for( let i = 0; i < 10000; i++) {
+//     fs.writeFileSync('./exampleDir/big.txt',`Hello World ${i}\n`,{ flag: 'a' });
+// }
